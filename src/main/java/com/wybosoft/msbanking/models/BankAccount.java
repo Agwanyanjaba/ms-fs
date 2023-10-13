@@ -1,9 +1,6 @@
 package com.wybosoft.msbanking.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class  BankAccount {
@@ -12,4 +9,8 @@ public class  BankAccount {
     private Long id;
     private String accountNumber;
     private double balance;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }
